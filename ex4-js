@@ -1,0 +1,27 @@
+let paires = [
+    [0, ""],
+    [0, "0"],
+    [0, false],
+    ["", false],
+    [null, undefined],
+    [null, false],
+    [NaN, NaN],
+    [1, "1"],
+    [" \t\n ", 0]
+];
+
+let compteurDiff = 0;
+
+for (let i = 0; i < paires.length; i++) {
+    let a = paires[i][0];
+    let b = paires[i][1];
+    let egal = (a == b);
+    let strict = (a === b);
+
+    if (egal !== strict) compteurDiff++;
+
+    console.log(`${String(a)} == ${String(b)}\t -> ${egal}    |   ${String(a)} === ${String(b)}\t -> ${strict}`);
+}
+
+console.log('---');
+console.log(`${compteurDiff} paire(s) où == et === donnent des résultats différents`);
